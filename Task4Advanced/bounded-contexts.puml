@@ -1,0 +1,32 @@
+@startuml future_2_0
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+title Диаграмма ограниченных контекстов для Future2.0
+
+System_Boundary(core, "Core domain") {
+    System(clinic_domain, "Медицинский домен", "Ограниченный контекст домена клиник.")
+    System(finance_domain, "Финансовый домен", "Ограниченный контекст домена финансов.")
+}
+
+System_Boundary(supporting, "Supporting domain") {
+    System(integrations_domain, "Домен интеграций с партнерами", "Ограниченный контекст домена интеграций с партнерами.")
+    System(laboratory_domain, "Домен лабораторий", "Ограниченный контекст домена интеграции с лабораториями анализов.")
+}
+
+System_Boundary(generic, "Generic domain") {
+    System(identity_domain, "Домен идентификации", "Ограниченный контекст домена аутентификации и авторизации.")
+    System(notification_domain, "Домен уведомлений", "Ограниченный контекст домена рассылки уведомлений.")
+    System(analytic_domain, "Домен аналитики", "Ограниченный контекст домена аналитики / отчетов / дата инженерии.")
+}
+
+Rel(clinic_domain, finance_domain, "Использует")
+Rel(clinic_domain, laboratory_domain, "Использует")
+Rel(clinic_domain, identity_domain, "Использует")
+Rel(clinic_domain, notification_domain, "Использует")
+Rel(finance_domain, notification_domain, "Использует")
+Rel(finance_domain, identity_domain, "Использует")
+Rel(finance_domain, integrations_domain, "Использует")
+Rel(analytic_domain, clinic_domain, "Использует")
+Rel(analytic_domain, finance_domain, "Использует")
+
+@enduml
