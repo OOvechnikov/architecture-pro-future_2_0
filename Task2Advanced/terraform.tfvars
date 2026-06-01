@@ -1,0 +1,5 @@
+zone  = "ru-central1-a"
+service_account_id = "********************"
+yandex_cloud_id    = "********************"
+yandex_cloud_token = "*****************************************"
+folder_id          = "********************"
