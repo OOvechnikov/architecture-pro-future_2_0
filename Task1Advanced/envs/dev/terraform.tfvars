@@ -22,7 +22,7 @@ subnet_id          = "********************"
 enable_nat         = true
 
 create_security_group = true
-security_group_name = "vm_sg"
+security_group_name = "vm_sg_dev"
 allowed_ssh_cidrs     = ["0.0.0.0/0"]
-ssh_user       = "future-user"
+ssh_user       = "dev-user"
 ssh_public_key        = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBu7CahVfYyqmuxUJbjV43wPsPz7RCejE6vQpe0IVpoy"
